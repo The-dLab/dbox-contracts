@@ -1,0 +1,8 @@
+{
+  "javascript.validate.enable": true,
+  "javascript.suggestionActions.enabled": false,
+  "editor.formatOnSave": true,
+  "[solidity]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  }
+}
