@@ -12,7 +12,7 @@ contract BlindBox is Ownable, ERC721Holder {
     using SafeMath for uint256;
     using SafeERC20 for IERC20;
 
-    event Draw(address sender, uint256 prizeId);
+    event Draw(address sender, uint256 time, uint256 prizeId);
     event ChangeState(address sender, State state);
     event Recycle(address sender);
 
@@ -169,7 +169,7 @@ contract BlindBox is Ownable, ERC721Holder {
         } else if (_prizeInfo.pType == PrizeType.NFT) {
             _prizeInfo.prizeNFT.safeTransferFrom(address(this), msg.sender, _prizeInfo.tokenId);
         }
-        emit Draw(msg.sender, id);
+        emit Draw(msg.sender, block.timestamp, id);
     }
 
     //start game

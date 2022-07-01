@@ -4,16 +4,16 @@ pragma solidity ^0.8.7;
 import "./BountyBox.sol";
 
 contract BountyBoxFactory is Ownable {
-    event CreateBox(bytes32 oid, address boxAddress);
+    event CreateBounty(bytes32 oid, address boxAddress);
 
-    function createBox(
+    function createBounty(
         bytes32 oid,
         bool _condition,
         uint256 _endTime,
         IERC20[] memory _cTokens,
         IERC721[] memory _cNFTs,
         uint256[] memory _cAmounts,
-        BlindBox.PrizeType[] memory _rTypes,
+        BountyBox.PrizeType[] memory _rTypes,
         address[] memory _rAddress,
         uint256[] memory _rAmounts
     ) public {
@@ -28,6 +28,6 @@ contract BountyBoxFactory is Ownable {
             _rAddress,
             _rAmounts
         );
-        emit CreateBox(oid, address(bounty));
+        emit CreateBounty(oid, address(bounty));
     }
 }
